@@ -5,7 +5,7 @@ Summary: OWASP dependency-check is a software composition analysis utility that 
 Group:   Development Tools
 License: ASL 2.0
 Source0: build.sh
-Source1: https://dl.bintray.com/jeremy-long/owasp/dependency-check-%{version}-release.zip
+URL:     https://dl.bintray.com/jeremy-long/owasp/dependency-check-%{version}-release.zip
 
 %description
 OWASP dependency-check-cli is an command line tool that uses dependency-check-core to detect
@@ -14,9 +14,11 @@ tool will generate a report listing the dependency, any identified Common Platfo
 (CPE) identifiers, and the associated Common Vulnerability and Exposure (CVE) entries.
 
 %prep
+echo "curl -L %{url} > dependency-check-release.zip"
+curl -L %{url} > dependency-check-release.zip
 ls
-find . -name dependency-check-5.3.0-release.zip
-unzip dependency-check-%{version}-release.zip
+find . -name dependency-check-release.zip
+unzip dependency-check-release.zip
 ls
 
 %install
