@@ -20,6 +20,7 @@ ls
 
 %install
 ls
+pwd
 install -d -m 0775 %{buildroot}/var/lib/dependency-check
 #install -d -m 0775 %{buildroot}/etc/nginx/conf.d
 #install -p -m 0664 %{SOURCE1} %{buildroot}/var/www/repos/retire-js-repository/jsrepository.json
