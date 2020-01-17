@@ -1,6 +1,6 @@
 Name:    dependency-check-rpm
 Version: 5.3.0
-Release: 1
+Release: 2
 Summary: OWASP dependency-check is a software composition analysis utility that detects publicly disclosed vulnerabilities in application dependencies.
 Group:   Development Tools
 License: ASL 2.0
@@ -18,19 +18,13 @@ echo "curl -L %{url} > dependency-check-release.zip"
 curl -L %{url} > dependency-check-release.zip
 ls
 find . -name dependency-check-release.zip
-unzip dependency-check-release.zip
+unzip -q dependency-check-release.zip
 ls
+ls dependency-check
 
 %install
-ls
-pwd
 install -d -m 0775 %{buildroot}/var/lib/dependency-check
-#install -d -m 0775 %{buildroot}/etc/nginx/conf.d
-#install -p -m 0664 %{SOURCE1} %{buildroot}/var/www/repos/retire-js-repository/jsrepository.json
-#install -p -m 0664 %{SOURCE2} %{buildroot}/var/www/repos/retire-js-repository/npmrepository.json
-#install -p -m 0664 %{SOURCE3} %{buildroot}/etc/nginx/conf.d/retire-js-repository.conf
+mv dependency-check/* %{buildroot}/var/lib/dependency-check
 
-#%files
-#/var/www/repos/retire-js-repository/jsrepository.json
-#/var/www/repos/retire-js-repository/npmrepository.json
-#/etc/nginx/conf.d/retire-js-repository.conf
+%files
+/var/lib/dependency-check
