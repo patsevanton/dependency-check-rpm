@@ -15,6 +15,7 @@ tool will generate a report listing the dependency, any identified Common Platfo
 
 %prep
 ls
+find . -name dependency-check-5.3.0-release.zip
 unzip dependency-check-%{version}-release.zip
 ls
 
